@@ -11,3 +11,5 @@ export type Run={id:string;scenario_id:string;status:'queued'|'running'|'complet
 export type Review={id:string;run_id:string;version:number;note:string;decision:'accepted'|'needs_changes';author:string;created_at:string};
 export type Report={id:string;run_id:string;review_id:string;title:string;published_by:string;created_at:string};
 export type Audit={id:string;actor:string;action:string;status:number;created_at:string};
+export type BatchRecordResult={kind:'task'|'dependency';stable_id:string;source:string;revision:number;action:'upsert'|'revoke';result:'applied'|'revoked'|'duplicate'|'stale'|'conflict'|'superseded';detail:string};
+export type ImportBatch={id:string;package_id:string;note:string;actor:string;status:'applied'|'rejected';error:string;summary:Record<string,number>;results:BatchRecordResult[];created_at:string};

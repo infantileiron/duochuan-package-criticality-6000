@@ -1,3 +1,5 @@
 -- Initial declarative schema lives in src/models; metadata.create_all creates missing tables.
 -- Work package input and dependency rows are frozen into immutable scenario version JSON.
 -- deadline uses DOUBLE, sample counts and seed use INTEGER; no production migration rollback.
+-- Incremental re-issue: import_batches keeps per-record outcomes; import_records is the
+-- (source, stable_id) merge ledger with revision, content hash and revoke tombstones.
